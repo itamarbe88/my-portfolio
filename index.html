@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Management Portfolio | Itamar Ben-Ezra</title>
+  <style>
+    /* CSS Variables & Theme Setup */
+    :root {
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --card-border: #334155;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-primary: #38bdf8;
+      --accent-hover: #0284c7;
+      --tag-bg: #1e3a8a;
+      --tag-text: #60a5fa;
+      --metric-bg: #0f2744;
+      --metric-border: #1d4ed8;
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: var(--font-family);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Header Section */
+    header {
+      margin-bottom: 3.5rem;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 2rem;
+    }
+
+    .header-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .header-subtitle {
+      font-size: 1.25rem;
+      color: var(--accent-primary);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .header-bio {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 1.5rem;
+      max-width: 750px;
+    }
+
+    .pillars {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .pillar-tag {
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .contact-links a {
+      color: var(--accent-primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Section Headers */
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--card-border);
+    }
+
+    /* Case Study Card Styling */
+    .case-study-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 700;
+      color: var(--accent-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .case-title {
+      font-size: 1.6rem;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Metadata Grid */
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      background: rgba(15, 23, 42, 0.6);
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .meta-item {
+      font-size: 0.875rem;
+    }
+
+    .meta-label {
+      color: var(--text-muted);
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .meta-value {
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    /* Hero Metric Box */
+    .hero-metric-box {
+      background: var(--metric-bg);
+      border-left: 4px solid var(--metric-border);
+      padding: 1rem;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .metric-value {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent-primary);
+    }
+
+    .metric-label {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    /* Case Content Sections */
+    .case-section {
+      margin-bottom: 1.25rem;
+    }
+
+    .case-section h4 {
+      font-size: 1.05rem;
+      color: var(--text-main);
+      margin-bottom: 0.4rem;
+      border-left: 3px solid var(--accent-primary);
+      padding-left: 0.5rem;
+    }
+
+    .case-section p, .case-section ul {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .case-section ul {
+      list-style-type: disc;
+      padding-left: 1.25rem;
+    }
+
+    .case-section li {
+      margin-bottom: 0.25rem;
+    }
+
+    /* Footer / About */
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--card-border);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+      .case-study-card {
+        padding: 1.25rem;
+      }
+      .meta-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- ==================== HERO / HEADER ==================== -->
+    <header>
+      <h1 class="header-title">Itamar Ben-Ezra</h1>
+      <div class="header-subtitle">Senior Product Manager | Strategic & Technical leader</div>
+      <p class="header-bio">
+Senior product manager with a clear business focus and deep technical foundation in software engineering. Leading teams in building high-scale B2B/B2C SaaS platforms, specializing in Smart Ticketing, CRM systems, 3rd-party integrations, e-commerce, and Mobility solutions.     </p>
+      
+      <div class="pillars">
+        <span class="pillar-tag">0-to-1 Strategy</span>
+        <span class="pillar-tag">System Architecture</span>
+        <span class="pillar-tag">Data-Driven Scoping</span>
+        <span class="pillar-tag">Cross-Functional Leadership</span>
+      </div>
+
+      <div class="contact-links">
+        <a href="mailto:itamar.benezra@gmail.com">Email Me</a> •
+        <a href="https://www.linkedin.com/in/itamar-ben-ezra-1838984/" target="_blank">LinkedIn</a> •
+        <a href="https://github.com/itamarbe88" target="_blank">GitHub</a> •
+        <a href="https://docs.google.com/document/d/1cuyuYY3SQKuEg4Zdo0iBv_uH1UHL7P1eCdKzPqyZVkQ/edit?usp=sharing" target="_blank">Resume</a>
+      </div>
+    </header>
+
+    <!-- ==================== CASE STUDIES ==================== -->
+    <main>
+      <h2 class="section-title">Featured Case Studies</h2>
+
+      <!-- CASE STUDY 1: 0-to-1 Product Launch -->
+      <article class="case-study-card">
+        <span class="card-badge">Case Study 01 • 0-to-1 Launch</span>
+        <h3 class="case-title">EV cars navigation platform, 0-to-1 Launch</h3>
+
+        <div class="meta-grid">
+          <div class="meta-item">
+            <span class="meta-label">Role & Scope</span>
+            <span class="meta-value">Lead PM (Strategy, Architecture, Specs, Delivery)</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Target Users</span>
+            <span class="meta-value">Front End teams and Car Drivers</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Team & Timeline</span>
+            <span class="meta-value">5 Engineers - Backend, Data Science, Algorithm, DevOps and Automation| 14 Months</span>
+          </div>
+        </div>
+
+        <div class="hero-metric-box">
+          <div class="metric-value">Build navigation routes for EV cars</div>
+          <div class="metric-label">Target: Establish a team and build MVP product | Result: MVP product launch after 10 months</div>
+        </div>
+
+        <div class="case-section">
+          <h4>1. The Problem & Business Context</h4>
+          <p>Charging EV cars is a big challenge where charging point availability, price, fit and location makes it hard for drivers to plan their trip</p>
+        </div>
+
+        <div class="case-section">
+          <h4>2. Discovery & Key Trade-Offs</h4>
+          <ul>
+            <li><strong>User Insight:</strong> We identified that drivers hate to depart the highway to charge and are keen to know the waiting time on the station which currently they can't tell  </li>
+            <li><strong>Trade-Off Made:</strong> Live traffic updates and tier-level pricing</li>
+          </ul>
+        </div>
+
+        <div class="case-section">
+          <h4>3. Execution & Delivery</h4>
+          <p>We broke the MVP to smaller milestones which included: backend infrastructure, simple A* algorithm implementation, and naive battery usage, we then implemented a physical-based battery usage model, integrated average speed data and weather and the last milestone was to include charging station preferences into the algorithm, the MVP was delivered to beta drivers after 8 months with a complete DevOps infrastructure to backup failures and for fast deployment of new features</p>
+        </div>
+
+        <div class="case-section">
+          <h4>4. Impact & Key Learnings</h4>
+          <p>We observed fast responses (p95 under 2 seconds), mostly accurate time and distance calculation and routes that needed improvement based on driver's preferences, our key learnings were to expand the testing suite with more routes in different departure times</p>
+        </div>
+      </article>
+
+
+      <!-- CASE STUDY 2: Platform / Technical Architecture -->
+      <article class="case-study-card">
+        <span class="card-badge">Case Study 02 • Operational excellence</span>
+        <h3 class="case-title">Game day operational efficiency</h3>
+
+        <div class="meta-grid">
+          <div class="meta-item">
+            <span class="meta-label">Role & Scope</span>
+            <span class="meta-value">Lead PM (Strategy, Architecture, Specs, Delivery)</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Target Users</span>
+            <span class="meta-value">Box office users & game-day fans</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Team & Timeline</span>
+            <span class="meta-value">4 Full-stack Engineers | 4 Months</span>
+          </div>
+        </div>
+
+        <div class="hero-metric-box">
+          <div class="metric-value">Improve fans' game day experience</div>
+          <div class="metric-label">Target: Excel troubleshooting tools, shorten queues and enable smooth stadium ingress</div>
+        </div>
+
+        <div class="case-section">
+          <h4>1. The Problem & Business Context</h4>
+          <p>Fans with problems are sent from the queue to the box office, which creates long queues in the box office and increases fan and staff frustration, game day experience has a heavy effect on client's and fans overall impression of the company</p>
+        </div>
+
+        <div class="case-section">
+          <h4>2. Discovery & Key Trade-Offs</h4>
+          <ul>
+            <li><strong>User Insight:</strong> Talking to different box office cashiers, managers and observing scanning attempts on end users' app helped us focus on the important aspects of game day experience: fast service, better orientation and proactive troubleshooting</li>
+            <li><strong>Trade-Off Made:</strong> We wanted to create a mobile/tablet-first with abilities to solve complex scenarios near the gates, but settled on helping field agents to triage between directing people to the right gates, help them find the game's relevant barcodes or go to the box office for advanced troubleshooting</li>
+          </ul>
+        </div>
+
+        <div class="case-section">
+          <h4>3. Execution & Delivery</h4>
+          <p>We first focused on breaking the delivery into an MVP->Feedback->improvements stages where the main focus was the ability to scan fans' barcodes with tablet or mobile devices, to proactively find orientation problems, invalid barcodes and help direct people with extra information to the box office, we delivered a first MVP version after 3 months and on-time for the pre-season games which tend to have lower volume and later delivered fixes and improvements into the season itself</p>
+        </div>
+
+        <div class="case-section">
+          <h4>4. Impact & Key Learnings</h4>
+          <p>We reduced the box-office queues on game day by 20% and also shortened the service time by 25% (from 8 minutes to 6), one of the most important key learnings was that we need to invest more time in offline services and find alternatives to weak Wi-Fi standards in the stadium</p>
+        </div>
+      </article>
+
+
+      <!-- CASE STUDY 3: Growth & Optimization -->
+      <article class="case-study-card">
+        <span class="card-badge">Case Study 03 • Growth & Retention</span>
+        <h3 class="case-title">Build retention and growth around ticket forwarding</h3>
+        <div class="meta-grid">
+          <div class="meta-item">
+            <span class="meta-label">Role & Scope</span>
+            <span class="meta-value">Senior PM</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Target Users</span>
+            <span class="meta-value">Fans and Ticket purchasers online</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Team & Timeline</span>
+            <span class="meta-value">3 Engineers, 1 Designer | 3 Months</span>
+          </div>
+        </div>
+
+        <div class="hero-metric-box">
+          <div class="metric-value">Increase retention and fan base online</div>
+          <div class="metric-label">Target: Add self-service action to attract fans visiting the client's (Team/Theatre) site</div>
+        </div>
+
+        <div class="case-section">
+          <h4>1. Diagnosis</h4>
+          <p>We identified that a large number of fans call the box office for actions like ticket forwarding that can be self-served online</p>
+        </div>
+
+        <div class="case-section">
+          <h4>2. Hypothesis & Experiment Design</h4>
+          <ul>
+            <li><strong>Hypothesis:</strong> We assumed that adding a ticket forwarding option will increase the number of online visits and grow the fan base</li>
+            <li><strong>Experimentation:</strong> We opened resell/forward options to 5000 fans online and tracked if they visited the site more and whether their actions led to new fans being added to the system</li>
+          </ul>
+        </div>
+
+        <div class="case-section">
+          <h4>3. Results & Iteration</h4>
+          <p>We saw that fan retention rate increased by 8% as part of the A/B testing, mostly for forwarding tickets, and fan base increased by 12% (every 8th fan that forwarded a ticket created a new fan, usually a friend or a family member)  </p>
+          <p>Our follow up was asking the box office personnel to inform fans that the action is available online each time fans call  </p>
+      </article>
+    </main>
+
+    <!-- ==================== FOOTER / ABOUT ==================== -->
+    <footer>
+      <p>© 2026 Itamar Ben-Ezra, Hope you've enjoyed reading :)</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
