@@ -1,0 +1,431 @@
+/* CSS Variables & Theme Setup */
+:root {
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --card-border: #334155;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent-primary: #38bdf8;
+  --accent-hover: #0284c7;
+  --tag-bg: #1e3a8a;
+  --tag-text: #60a5fa;
+  --metric-bg: #0f2744;
+  --metric-border: #1d4ed8;
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-family);
+  line-height: 1.6;
+  padding: 2rem 1rem;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Header Section */
+header {
+  margin-bottom: 3.5rem;
+  border-bottom: 1px solid var(--card-border);
+  padding-bottom: 2rem;
+}
+
+.header-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.header-subtitle {
+  font-size: 1.25rem;
+  color: var(--accent-primary);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.header-bio {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+  max-width: 750px;
+}
+
+.pillars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.pillar-tag {
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.contact-links {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.95rem;
+}
+
+.contact-links a {
+  color: var(--accent-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-links a:hover {
+  text-decoration: underline;
+}
+
+/* Section Headers */
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--card-border);
+}
+
+/* Case Study Card Styling */
+.case-study-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  color: var(--accent-primary);
+  margin-bottom: 0.5rem;
+}
+
+.case-title {
+  font-size: 1.6rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Metadata Grid */
+.meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  background: rgba(15, 23, 42, 0.6);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.meta-item {
+  font-size: 0.875rem;
+}
+
+.meta-label {
+  color: var(--text-muted);
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.meta-value {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+/* Hero Metric Box */
+.hero-metric-box {
+  background: var(--metric-bg);
+  border-left: 4px solid var(--metric-border);
+  padding: 1rem;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 1.5rem;
+}
+
+.metric-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+}
+
+.metric-label {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+/* Case Content Sections */
+.case-section {
+  margin-bottom: 1.25rem;
+}
+
+.case-section h4 {
+  font-size: 1.05rem;
+  color: var(--text-main);
+  margin-bottom: 0.4rem;
+  border-left: 3px solid var(--accent-primary);
+  padding-left: 0.5rem;
+}
+
+.case-section p, .case-section ul {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.case-section ul {
+  list-style-type: disc;
+  padding-left: 1.25rem;
+}
+
+.case-section li {
+  margin-bottom: 0.25rem;
+}
+
+/* Footer / About */
+footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--card-border);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* ==================== APPS (clips) ==================== */
+.apps-intro {
+  color: var(--text-muted);
+  margin: -0.75rem 0 1.5rem;
+  font-size: 0.95rem;
+}
+
+.apps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 3.5rem;
+}
+
+.app-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  gap: 1.25rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* The clip in a phone-shaped frame. */
+.app-phone {
+  flex: 0 0 150px;
+  border-radius: 22px;
+  border: 4px solid #0b1220;
+  outline: 1px solid var(--card-border);
+  overflow: hidden;
+  background: #000;
+  align-self: flex-start;
+}
+
+.app-phone video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.app-body h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.app-body .app-pitch {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.6rem;
+}
+
+.app-body ul {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  padding-left: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.app-body li {
+  margin-bottom: 0.2rem;
+}
+
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.6rem;
+}
+
+.stack span {
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  padding: 0.1rem 0.55rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.app-links {
+  font-size: 0.85rem;
+}
+
+.app-links a {
+  color: var(--accent-primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.app-links a:hover {
+  text-decoration: underline;
+}
+
+.app-note {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+@media (max-width: 600px) {
+  .apps-grid {
+    grid-template-columns: 1fr;
+  }
+  .app-card {
+    flex-direction: column;
+    align-items: center;
+  }
+  .app-phone {
+    flex-basis: auto;
+    width: 200px;
+    align-self: center;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+  .case-study-card {
+    padding: 1.25rem;
+  }
+  .meta-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==================== TEASER (main page → apps page) ==================== */
+.apps-teaser {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: linear-gradient(135deg, #1e293b 0%, #172554 100%);
+  border: 1px solid var(--metric-border);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 3rem;
+  text-decoration: none;
+  color: var(--text-main);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.apps-teaser:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-primary);
+}
+
+.teaser-phones {
+  display: flex;
+  flex: 0 0 auto;
+}
+
+.teaser-phones img {
+  width: 54px;
+  height: 108px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 9px;
+  border: 2px solid #0b1220;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  margin-left: -14px;
+}
+
+.teaser-phones img:first-child {
+  margin-left: 0;
+}
+
+.teaser-kicker {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  color: var(--accent-primary);
+}
+
+.teaser-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0.15rem 0 0.25rem;
+}
+
+.teaser-text {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.teaser-cta {
+  margin-left: auto;
+  font-weight: 700;
+  color: var(--accent-primary);
+  white-space: nowrap;
+}
+
+.back-link {
+  color: var(--accent-primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 600px) {
+  .apps-teaser {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .teaser-cta {
+    margin-left: 0;
+  }
+}
