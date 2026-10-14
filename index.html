@@ -228,6 +228,119 @@
       text-align: center;
     }
 
+    /* ==================== APPS (clips) ==================== */
+    .apps-intro {
+      color: var(--text-muted);
+      margin: -0.75rem 0 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .app-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      display: flex;
+      gap: 1.25rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* The clip in a phone-shaped frame. */
+    .app-phone {
+      flex: 0 0 150px;
+      border-radius: 22px;
+      border: 4px solid #0b1220;
+      outline: 1px solid var(--card-border);
+      overflow: hidden;
+      background: #000;
+      align-self: flex-start;
+    }
+
+    .app-phone video {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .app-body h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .app-body .app-pitch {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .app-body ul {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      padding-left: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .app-body li {
+      margin-bottom: 0.2rem;
+    }
+
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .stack span {
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      padding: 0.1rem 0.55rem;
+      border-radius: 9999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+
+    .app-links {
+      font-size: 0.85rem;
+    }
+
+    .app-links a {
+      color: var(--accent-primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .app-links a:hover {
+      text-decoration: underline;
+    }
+
+    .app-note {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+    }
+
+    @media (max-width: 600px) {
+      .apps-grid {
+        grid-template-columns: 1fr;
+      }
+      .app-card {
+        flex-direction: column;
+        align-items: center;
+      }
+      .app-phone {
+        flex-basis: auto;
+        width: 200px;
+        align-self: center;
+      }
+    }
+
     @media (max-width: 600px) {
       body {
         padding: 1rem;
@@ -268,6 +381,83 @@ Leading teams in building high-scale B2B/B2C SaaS platforms, specializing in Sma
         <a href="mailto:itamar.benezra@gmail.com">Email Me</a>
       </div>
     </header>
+
+    <!-- ==================== APPS I BUILT ==================== -->
+    <section>
+      <h2 class="section-title">Apps I Built Recently</h2>
+      <p class="apps-intro">Products I took from idea to production on my own — discovery, design, engineering and launch — using AI-assisted development. Each clip is a short silent run-through.</p>
+      <div class="apps-grid">
+        <article class="app-card">
+          <a class="app-phone" href="clips/note-spot.mp4" target="_blank" rel="noopener" title="Open the clip full size">
+            <video src="clips/note-spot.mp4" poster="clips/note-spot.jpg" autoplay muted loop playsinline preload="metadata" aria-label="note-spot demo clip"></video>
+          </a>
+          <div class="app-body">
+            <h3>note-spot</h3>
+            <p class="app-pitch">A multiplayer guess-the-song party game for phones (Hebrew).</p>
+            <ul>
+              <li>Song difficulty estimated from catalogue popularity, then learned from real plays</li>
+              <li>Token budget for picking songs, so nobody can game it with obscure tracks</li>
+              <li>Forgiving Hebrew ⇄ English answer matching (typos, transliteration)</li>
+              <li>Live updates, robot opponents, per-player stats and an ops dashboard</li>
+            </ul>
+            <div class="stack"><span>Next.js</span><span>React</span><span>Supabase</span><span>Realtime</span><span>Vercel</span></div>
+            <p class="app-links"><a href="https://songuess-game.vercel.app" target="_blank" rel="noopener">Play it →</a></p>
+            <p class="app-note">Live; dozens of players in its first week.</p>
+          </div>
+        </article>
+        <article class="app-card">
+          <a class="app-phone" href="clips/luzyo.mp4" target="_blank" rel="noopener" title="Open the clip full size">
+            <video src="clips/luzyo.mp4" poster="clips/luzyo.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Luzyo demo clip"></video>
+          </a>
+          <div class="app-body">
+            <h3>Luzyo</h3>
+            <p class="app-pitch">A family schedule app: everyone's week in one shared calendar.</p>
+            <ul>
+              <li>Recurring and one-off activities per family member, colour-coded</li>
+              <li>AI reads a photographed schedule and turns it into activities</li>
+              <li>Push alerts for when to leave and pickups, using live travel time</li>
+            </ul>
+            <div class="stack"><span>Next.js PWA</span><span>Supabase Auth & RLS</span><span>Web Push</span><span>Gemini</span></div>
+            <p class="app-links">Private family app.</p>
+            <p class="app-note">Clip uses a made-up demo family.</p>
+          </div>
+        </article>
+        <article class="app-card">
+          <a class="app-phone" href="clips/credit-cards.mp4" target="_blank" rel="noopener" title="Open the clip full size">
+            <video src="clips/credit-cards.mp4" poster="clips/credit-cards.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Credit-card spending demo clip"></video>
+          </a>
+          <div class="app-body">
+            <h3>Credit-card spending</h3>
+            <p class="app-pitch">Household spending, always up to date, without logging into card sites.</p>
+            <ul>
+              <li>A home-PC scraper syncs the family's cards twice a day, or on demand</li>
+              <li>Auto-categorised spending, month-over-month changes and an end-of-month forecast</li>
+              <li>Separates foreign/immediate charges from the monthly bill</li>
+            </ul>
+            <div class="stack"><span>Node scraper</span><span>Supabase</span><span>Next.js PWA</span><span>Windows Task Scheduler</span></div>
+            <p class="app-links">Private family app.</p>
+            <p class="app-note">Clip uses made-up demo data.</p>
+          </div>
+        </article>
+        <article class="app-card">
+          <a class="app-phone" href="clips/city-bot.mp4" target="_blank" rel="noopener" title="Open the clip full size">
+            <video src="clips/city-bot.mp4" poster="clips/city-bot.jpg" autoplay muted loop playsinline preload="metadata" aria-label="City-bot demo clip"></video>
+          </a>
+          <div class="app-body">
+            <h3>City-bot</h3>
+            <p class="app-pitch">A local-services marketplace in a chat: ask for a plumber, a cake, a tutor.</p>
+            <ul>
+              <li>Hebrew intent detection and provider search, no LLM calls on the hot path</li>
+              <li>Typo-tolerant, learns from searches that found nothing</li>
+              <li>Runs on Telegram and WhatsApp; providers register and get rated in-chat</li>
+            </ul>
+            <div class="stack"><span>Python FastAPI</span><span>Firestore</span><span>Cloud Run</span><span>Telegram/WhatsApp APIs</span></div>
+            <p class="app-links">Private beta.</p>
+            <p class="app-note">Clip replays the live bot's real answers to three requests.</p>
+          </div>
+        </article>
+      </div>
+    </section>
 
     <!-- ==================== CASE STUDIES ==================== -->
     <main>
